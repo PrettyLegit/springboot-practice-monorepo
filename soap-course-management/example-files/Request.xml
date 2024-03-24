@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GetCourseDetailsRequest xmlns="http://jimmywin.net/courses"
+xsi:schemaLocation="http://jimmywin.net/courses course-deatils.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+    <id>123</id>
+</GetCourseDetailsRequest>

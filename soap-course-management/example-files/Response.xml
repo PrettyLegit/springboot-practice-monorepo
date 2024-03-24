@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GetCourseDetailsResponse xmlns="http://jimmywin.net/courses"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://jimmywin.net/courses course-details.xsd"
+>
+    <CourseDetails>
+        <id>123</id>
+        <name>Spring</name>
+        <description>Learn the basics of spring framework</description>
+    </CourseDetails>
+</GetCourseDetailsResponse>
