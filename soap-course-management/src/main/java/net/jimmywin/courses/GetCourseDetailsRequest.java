@@ -47,13 +47,11 @@ public class GetCourseDetailsRequest {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
-    public BigInteger getId() {
+    public int getId() {
         return id;
     }
 
