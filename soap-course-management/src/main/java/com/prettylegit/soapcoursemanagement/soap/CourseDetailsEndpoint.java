@@ -1,8 +1,11 @@
 package com.prettylegit.soapcoursemanagement.soap;
 
+import net.jimmywin.courses.*;
+
 import com.prettylegit.soapcoursemanagement.soap.bean.Course;
 import com.prettylegit.soapcoursemanagement.soap.service.CourseDetailsService;
-import net.jimmywin.courses.*;
+import com.prettylegit.soapcoursemanagement.soap.service.CourseDetailsService.Status;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -40,11 +43,19 @@ public class CourseDetailsEndpoint {
     @PayloadRoot(namespace = "http://jimmywin.net/courses", localPart = "DeleteCourseDetailsRequest")
     @ResponsePayload
     public DeleteCourseDetailsResponse processDeleteRequest(@RequestPayload DeleteCourseDetailsRequest request){
-        int status = service.deleteById(request.getId());
+//         status = service.deleteById(request.getId());
 
+        Status status = service.deleteById(request.getId());
         DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
-        response.setStatus(status);
+        response.setStatus(mapStatus(status));
         return response;
+    }
+
+    private net.jimmywin.courses.Status mapStatus(Status status){
+        if(status == Status.FAILURE){
+            return net.jimmywin.courses.Status.FAILURE;
+        }
+        return net.jimmywin.courses.Status.SUCCESS;
     }
 
     private GetCourseDetailsResponse mapCourseDetails(Course course) {
