@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 // DAO is Data Access Object
 @Component
@@ -24,7 +25,7 @@ public class UserDaoService {
 
      public User findOne(Integer id){
          for (User user : users) {
-             if (user.getId() == id) {
+             if (Objects.equals(user.getId(), id)) {
                  return user;
              }
          }
