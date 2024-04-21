@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 // DAO is Data Access Object
@@ -19,6 +20,15 @@ public class UserDaoService {
      }
      public List<User> findAll(){
          return users;
+     }
+
+     public User findOne(Integer id){
+         for (User user : users) {
+             if (user.getId() == id) {
+                 return user;
+             }
+         }
+         return null;
      }
 
 
