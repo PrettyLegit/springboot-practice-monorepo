@@ -43,8 +43,6 @@ public class CourseDetailsEndpoint {
     @PayloadRoot(namespace = "http://jimmywin.net/courses", localPart = "DeleteCourseDetailsRequest")
     @ResponsePayload
     public DeleteCourseDetailsResponse processDeleteRequest(@RequestPayload DeleteCourseDetailsRequest request){
-//         status = service.deleteById(request.getId());
-
         Status status = service.deleteById(request.getId());
         DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
         response.setStatus(mapStatus(status));
