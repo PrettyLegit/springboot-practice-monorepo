@@ -37,6 +37,16 @@ public class CourseDetailsEndpoint {
         return mapAllCourseDetails(courses);
     }
 
+    @PayloadRoot(namespace = "http://jimmywin.net/courses", localPart = "DeleteCourseDetailsRequest")
+    @ResponsePayload
+    public DeleteCourseDetailsResponse processDeleteRequest(@RequestPayload DeleteCourseDetailsRequest request){
+        int status = service.deleteById(request.getId());
+
+        DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
+        response.setStatus(status);
+        return response;
+    }
+
     private GetCourseDetailsResponse mapCourseDetails(Course course) {
         GetCourseDetailsResponse response = new GetCourseDetailsResponse();
         response.setCourseDetails(mapCourse(course));
