@@ -1,5 +1,6 @@
 package com.prettylegit.soapcoursemanagement.soap;
 
+import com.prettylegit.soapcoursemanagement.soap.exception.CourseNotFoundException;
 import net.jimmywin.courses.*;
 
 import com.prettylegit.soapcoursemanagement.soap.bean.Course;
@@ -28,6 +29,10 @@ public class CourseDetailsEndpoint {
     @ResponsePayload
     public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) {
         Course course = service.findById(request.getId());
+
+        if(course == null){
+            throw new CourseNotFoundException("Invalid Course ID " + request.getId());
+        }
 
         return mapCourseDetails(course);
     }
