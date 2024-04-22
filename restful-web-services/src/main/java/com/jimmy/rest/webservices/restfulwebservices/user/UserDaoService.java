@@ -40,10 +40,6 @@ public class UserDaoService {
      }
 
      public void deleteById(Integer id) {
-         for (User user : users) {
-             if (Objects.equals(user.getId(), id)) {
-                 users.remove(user);
-             }
-         }
+         users.removeIf(user -> Objects.equals(user.getId(), id));
      }
 }
