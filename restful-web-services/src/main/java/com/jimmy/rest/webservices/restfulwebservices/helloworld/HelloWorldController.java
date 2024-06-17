@@ -34,8 +34,8 @@ public class HelloWorldController {
         );
     }
 
-    @GetMapping(path = "/hello-world-i11n")
-    public String helloWorldI11n(){
+    @GetMapping(path = "/hello-world-i18n")
+    public String helloWorldI18n(){
         Locale locale = LocaleContextHolder.getLocale();
         return messageSource.getMessage("good.morning.message", null, "Default Message", locale);
 //        return "Hello World V2";
