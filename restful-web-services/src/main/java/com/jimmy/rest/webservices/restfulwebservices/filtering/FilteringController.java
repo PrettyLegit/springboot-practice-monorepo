@@ -17,7 +17,7 @@ public class FilteringController {
     @GetMapping("/filtering")
     public MappingJacksonValue filtering() {
         SomeBean someBean = new SomeBean("value1", "value2", "value3");
-        
+
         return createFilteredResponse(someBean, new String[]{"field2", "field3"});
     }
 
